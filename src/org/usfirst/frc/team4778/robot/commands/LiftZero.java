@@ -24,8 +24,8 @@ public class LiftZero extends Command {
     @Override
     protected void execute() {
 	finished = false;
-	Robot.leftLift.getPIDController().setSetpoint(0.00);
-	Robot.rightLift.getPIDController().setSetpoint(0.00);
+	Robot.leftLift.getPIDController().setSetpoint(0.16);
+	Robot.rightLift.getPIDController().setSetpoint(0.16);
 	finished = true;
     }
 

@@ -27,22 +27,21 @@ public class HomeLifts extends Command {
 	finished = false;
 	Robot.rightLift.getPIDController().disable();
 	Robot.leftLift.getPIDController().disable();
-	
 	RobotMap.rightGripIn.set(true);
 	RobotMap.rightGripOut.set(false);
 	RobotMap.leftGripIn.set(true);
 	RobotMap.leftGripOut.set(false);
-	
-	while (RobotMap.leftZeroSwitch.get() == true)
-	    RobotMap.rightLiftMotor.set(0.4);
+	while (RobotMap.rightZeroSwitch.get() == true)
+	    RobotMap.rightLiftMotor.set(-0.4);
+	RobotMap.leftLiftMotor.set(0.4);
 	RobotMap.rightLiftMotor.set(0.00);
 	RobotMap.rightEncoderPrimary.reset();
-
-	while (RobotMap.rightZeroSwitch.get() == true)
-	    RobotMap.leftLiftMotor.set(-0.4);
+	while (RobotMap.leftZeroSwitch.get() == true)
+	    RobotMap.leftLiftMotor.set(0.4);
 	RobotMap.leftLiftMotor.set(0.00);
 	RobotMap.leftEncoderPrimary.reset();
-	
+	Robot.leftLift.getPIDController().enable();
+	Robot.rightLift.getPIDController().enable();
 	finished = true;
     }
 
